@@ -14,19 +14,19 @@ import './screens/Global.js';
 const Stack = createStackNavigator();
 
 const App = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Main" component={MainScreen} />
-        <Stack.Screen name="Auth" component={AuthScreen} />
-        <Stack.Screen name="QR" component={QRScreen} />
-        <Stack.Screen name="Info" component={InfoScreen} />
-        <Stack.Screen name="Services" component={ServicesScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen name="Home" component={HomeScreen} />
+                <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="Main" component={MainScreen} />
+                <Stack.Screen name="Auth" component={AuthScreen} />
+                <Stack.Screen name="QR" component={QRScreen} />
+                <Stack.Screen name="Info" component={InfoScreen} />
+                <Stack.Screen name="Services" component={ServicesScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 };
 
 export default App;
