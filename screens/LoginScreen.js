@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
 import axios from 'axios';
+import './Global.js';
 
 const DetailsScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+
   const handleLogin = async () => {
     try {
       // Replace the following URL with your actual authentication API endpoint
@@ -19,6 +22,8 @@ const DetailsScreen = ({ navigation }) => {
 
       if(response.data === 'correct password'){
         navigation.navigate('Main');
+        global.user = username;
+        console.log("saved user:", global.user);
       }
 
 
