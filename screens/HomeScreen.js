@@ -7,10 +7,12 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.text}>Home Screen</Text>
       <Button
+      color='#3cc26d'
         title="Go to Login"
         onPress={() => navigation.navigate('Login')}
       />
       <Button
+      color='#3cc26d'
               title="Go to Autentification"
               onPress={() => navigation.navigate('Auth')}
             />

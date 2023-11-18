@@ -37,7 +37,7 @@ const AuthScreen = ({ navigation }) => {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-      <Button title="Authentificate" onPress={handleLogin} />
+      <Button color='#3cc26d' title="Authentificate" onPress={handleLogin} />
     </View>
   );
 };

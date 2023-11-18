@@ -17,13 +17,17 @@ const DetailsScreen = ({ navigation }) => {
       // Make a GET request to the API
       const response = await axios.get(apiUrl);
 
+
+      const apiUrl1 = 'http://10.0.2.2:5089/api/points/'+username;
+      const response1 = await axios.get(apiUrl1);
       // For simplicity, we'll just log the response data
       console.log('API Response:', response.data);
 
       if(response.data === 'correct password'){
-        navigation.navigate('Main');
         global.user = username;
-        console.log("saved user:", global.user);
+        global.points = response1.data;
+        navigation.navigate('Main');
+        console.log("saved user:", global.points);
       }
 
 
@@ -50,7 +54,7 @@ const DetailsScreen = ({ navigation }) => {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-      <Button title="Login" onPress={handleLogin} />
+      <Button color='#3cc26d' title="Login" onPress={handleLogin} />
     </View>
   );
 };
