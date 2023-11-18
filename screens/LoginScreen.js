@@ -6,8 +6,6 @@ import axios from 'axios';
 const DetailsScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  //const shouldNavigateToDetails = true; // Replace with your actual condition
-
   const handleLogin = async () => {
     try {
       // Replace the following URL with your actual authentication API endpoint
@@ -20,7 +18,7 @@ const DetailsScreen = ({ navigation }) => {
       console.log('API Response:', response.data);
 
       if(response.data === 'correct password'){
-        navigation.navigate('Profile');
+        navigation.navigate('Main');
       }
 
 

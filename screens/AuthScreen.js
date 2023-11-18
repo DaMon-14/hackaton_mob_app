@@ -1,19 +1,23 @@
 // screens/AuthScreen.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import axios from 'axios';
 
 const AuthScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Replace the following logic with your actual authentication process
-    if (username === 'user' && password === 'password') {
-      // Successful authentication, navigate to the next screen (e.g., HomeScreen)
-      navigation.navigate('Home');
-    } else {
-      // Failed authentication, show an error message
-      Alert.alert('Authentication Failed', 'Invalid username or password.');
+  const handleLogin = async () => {
+    try{
+        const apiUrl = 'http://10.0.2.2:5089/api/Customers/' + username + '&' + password;
+        console.log('username:', typeof(username));
+        // Make a POST request to the API with the provided credentials
+            const response = await axios.post(apiUrl, {});
+            navigation.navigate('Login');
+    }catch(error){
+        console.error('API Request Error:', error.message);
+              // Handle error (e.g., show an error message to the user)
+              Alert.alert('Error', 'Failed to authenticate. Please try again.');
     }
   };
 
@@ -33,7 +37,7 @@ const AuthScreen = ({ navigation }) => {
         value={password}
         onChangeText={(text) => setPassword(text)}
       />
-      <Button title="Login" onPress={handleLogin} />
+      <Button title="Authentificate" onPress={handleLogin} />
     </View>
   );
 };
